@@ -1,0 +1,115 @@
+<%- include('templates/header.ejs') %>
+
+<div class="container-fluid pb-3">
+  <div>
+
+    <% if (locals.error) { %>
+      <div class="bg-light border rounded-3">
+        <section class="container">
+          <h2 class="m-2"><%=error%></h2>
+        </section>
+      </div>
+    <% } else { %>
+      <div class="card">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Random Cocktail</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="true" href="/index">List of Cocktails</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ingr">List by Ingredients</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+
+                  
+        <div>
+          <% alphabet.forEach(letter => { %>
+            <a class="btn btn-outline-secondary
+            <% if (letter === letterChosen.toUpperCase()) { %> active <% } %>
+            " href="/index?i=<%=letter%>" role="button"><%=letter%></a>      
+          <% }) %>
+        </div>
+  
+
+
+        <% if(locals.drinks) {%>
+          <div>
+            <section>
+              <h2 class="m-2">Cocktail list</h2>
+              <div class="row">
+
+                <% drinks.forEach(drink => { %>
+                  <div class="col-sm-6">
+                    <div class="card mb-3">
+                      <div class="row g-0">
+                        <div class="col-md-2">
+                          <img src="<%=drink.strDrinkThumb %>" class="img-fluid rounded-start" alt="Picture of <%=drink.strDrink%>">
+                        </div>
+                        <div class="col-md-10">
+                          <div class="card-body">
+                            <a class="link-secondary" href="/detail?id=<%=drink.idDrink %>"><h5 class="card-title"><%=drink.strDrink%></h5></a>
+                            <p class="card-text"><small class="text-muted"><%=drink.strCategory%>, <%=drink.strAlcoholic%></small></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% }) %>
+              </div>
+            </section>
+          </div>
+        </div>
+        <% } else { %>
+          <div class="bg-light border rounded-3 my-3">
+            <section class="container">
+              <p class="m-2">There are no Cocktails to show with this filter. Try another filter.</p>
+            </section>
+          </div>
+        <% } %>
+    <% } %>
+    
+
+    <!--
+    
+          
+          <div class="col">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+        -->
+  </div>
+</div>
+
+<%- include('templates/footer.ejs') %>

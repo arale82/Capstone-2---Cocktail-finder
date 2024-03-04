@@ -1,0 +1,127 @@
+<%- include('templates/header.ejs') %>
+
+<div class="container-fluid pb-3">
+  <div>
+
+    <% if (locals.error) { %>
+      <div class="bg-light border rounded-3">
+        <section class="container">
+          <h2 class="m-2"><%=error%></h2>
+        </section>
+      </div>
+    <% } else { %>
+      <div class="card">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="true" href="/"><% if (locals.random) { %> Random <% } else { %> Detail <% } %>Cocktail</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/index">List of Cocktails</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ingr">List by Ingredients</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <h2 class="m-2"><%=drink.strDrink%></h2>
+
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="<%=drink.strDrinkThumb %>" class="img-fluid rounded-start" alt="Picture of <%=drink.strDrink%>">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%=drink.strCategory%></h5>
+                  <p class="card-text"><small class="text-muted"><%=drink.strAlcoholic%></small></p>
+                  <p class="card-text">
+                    <em>Ingredients</em>
+                    <% if (drink.strIngredient1) { %> <br/><%=drink.strMeasure1%> of <%=drink.strIngredient1%> <% } %>
+                    <% if (drink.strIngredient2) { %> <br/><%=drink.strMeasure2%> of <%=drink.strIngredient2%> <% } %>
+                    <% if (drink.strIngredient3) { %> <br/><%=drink.strMeasure3%> of <%=drink.strIngredient3%> <% } %>
+                    <% if (drink.strIngredient4) { %> <br/><%=drink.strMeasure4%> of <%=drink.strIngredient4%> <% } %>
+                    <% if (drink.strIngredient5) { %> <br/><%=drink.strMeasure5%> of <%=drink.strIngredient5%> <% } %>
+                    <% if (drink.strIngredient6) { %> <br/><%=drink.strMeasure6%> of <%=drink.strIngredient6%> <% } %>
+                    <% if (drink.strIngredient7) { %> <br/><%=drink.strMeasure7%> of <%=drink.strIngredient7%> <% } %>
+                    <% if (drink.strIngredient8) { %> <br/><%=drink.strMeasure8%> of <%=drink.strIngredient8%> <% } %>
+                    <% if (drink.strIngredient9) { %> <br/><%=drink.strMeasure9%> of <%=drink.strIngredient9%> <% } %>
+                    <% if (drink.strIngredient10) { %> <br/><%=drink.strMeasure10%> of <%=drink.strIngredient10%> <% } %>
+                    <% if (drink.strIngredient11) { %> <br/><%=drink.strMeasure11%> of <%=drink.strIngredient11%> <% } %>
+                    <% if (drink.strIngredient12) { %> <br/><%=drink.strMeasure12%> of <%=drink.strIngredient12%> <% } %>
+                    <% if (drink.strIngredient13) { %> <br/><%=drink.strMeasure13%> of <%=drink.strIngredient13%> <% } %>
+                    <% if (drink.strIngredient14) { %> <br/><%=drink.strMeasure14%> of <%=drink.strIngredient14%> <% } %>
+                    <% if (drink.strIngredient15) { %> <br/><%=drink.strMeasure15%> of <%=drink.strIngredient15%> <% } %>
+                  </p>
+                  <p class="card-text">
+                    <em>Preparation</em>
+                    <br/><%=drink.strInstructions %></p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <% } %>
+    
+
+    <!--
+    <div class="bg-light border rounded-3">
+      <section class="container">
+        <h2 class="m-2">Cocktail list</h2>
+        <div class="row row-cols-1 row-cols-md-2 my-2 g-4">
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+        -->
+  </div>
+</div>
+
+<%- include('templates/footer.ejs') %>
